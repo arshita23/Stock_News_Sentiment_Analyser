@@ -16,6 +16,14 @@
             height: 100vh;
         }
 
+                /* Error message styles */
+            .error-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
         .dropdown-menu {
             width: 300px;
             background-color: #ffffff;
@@ -94,9 +102,11 @@
     </style>
 </head>
 <body>
-    {% if error_message %}
-      <p>{{error_message}}</p>
-    {% endif %}
+    <div class="error-message">
+        {% if error_message %}
+        {{error_message}}
+        {% endif %}
+    </div>
 
 
 <form method = "post">
