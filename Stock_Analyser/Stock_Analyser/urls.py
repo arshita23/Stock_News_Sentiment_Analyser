@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('home/',views.homePage, name='homePage'),
     path('', views.index,name="index"),
+    path('news/',views.get_news,name="get_news")
 ]
