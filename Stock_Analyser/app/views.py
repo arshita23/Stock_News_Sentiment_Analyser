@@ -21,7 +21,20 @@ newsapi = NewsApiClient(api_key = NEWS_API_KEY)
 
 
 
-
+def index(request):
+    if request.method=="POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        data = New.objects.filter(email = email).first()
+        if data:
+            if (password == data.password):
+                return render(request,"homepage.html")
+                
+            else:
+                return render(request, "login.html",{"error_message": "password is incorrect"})
+        else:
+            return render(request, "login.html",{"error_message": "user not found"})
+    return render(request,"login.html")
 # Create your views here.
 
 
